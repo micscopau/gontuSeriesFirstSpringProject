@@ -1,6 +1,7 @@
 package springcore;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestSpringProject {
@@ -9,10 +10,25 @@ public class TestSpringProject {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("SpringConfig.xml");
 				
-				Restaurant restaurantObj = (Restaurant) context.getBean("restaurantBean");
+		Restaurant restaurantObj = (Restaurant) context.getBean("restaurantBean");
 		
+		((AbstractApplicationContext)context).registerShutdownHook();
+		
+		//restaurantObj.greetCustomer();
+		//restaurantObj.prepareHotDrink();	
+		//restaurantObj.displayWaitersNames();
+		
+		restaurantObj.setWelcomeNote("Hello customer.");
 		restaurantObj.greetCustomer();
-		restaurantObj.prepareHotDrink();
+
+		//EOE10 singleton vs. prototype behavior
+		//Restaurant restaurantObj1 = (Restaurant) context.getBean("restaurantBean");
+		//restaurantObj1.greetCustomer();
+		
+		//destroys all beans in application context when main method ends.
+		
+		
+		
 	}
 	
 	
