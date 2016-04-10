@@ -5,9 +5,15 @@ public class Restaurant {
 	String welcomeNote;
 	HotDrink hotDrink;
 	
-	Restaurant(HotDrink hotDrink){
+	public void setHotDrink(HotDrink hotDrink){
 		this.hotDrink = hotDrink;
 	}
+	
+	/*
+	//Constructor Method
+	Restaurant(HotDrink hotDrink){
+		this.hotDrink = hotDrink;
+	}*/
 	
 	public void prepareHotDrink(){
 		hotDrink.prepareHotDrink();
